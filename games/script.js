@@ -172,14 +172,7 @@ class enemy{
 		if (player.x == this.x - 90 && player.y == this.y) {
 			if (AudioON_OF) {loseA.play()}
 		}
-		// if (player.x == this.x -60 && player.y == this.y) {
-		// 	console.log("lose")
-			
-		// }
-		if(player.x + box/2 >= this.x
-		&& player.x <= this.x + box/2
-		&& player.y >= this.y - 50
-		&& player.y <= this.y + 50){
+		if (player.x + box /2 >= this.x - this.width && player.x <= this.x + box/2 && player.y == this.y) {
 			window.location.reload();
 		}
 		if (player.x == this.x - 90 && player.y != this.y) {
