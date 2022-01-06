@@ -163,6 +163,9 @@ class enemy{
 		this.frameInterval = 70;
 	}
 	update(deltaTime){
+		if (player.x + box /2 >= this.x - this.width && player.x <= this.x + box/2 && player.y == this.y) {
+			window.location.reload();
+		}
 		this.x -= 5;
 		if (this.frameTimer > this.frameInterval) {
 			if (this.frameX < this.maxFrame) {this.frameX++;}
@@ -175,9 +178,6 @@ class enemy{
 		}
 		if (player.x == this.x - 90 && player.y == this.y) {
 			if (AudioON_OF) {loseA.play()}
-		}
-		if (player.x + box /2 >= this.x - this.width && player.x <= this.x + box/2 && player.y == this.y) {
-			window.location.reload();
 		}
 		if (player.x == this.x - 90 && player.y != this.y) {
 			score += 1;
