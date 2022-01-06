@@ -234,7 +234,7 @@ function draw(timeStamp) {
 
 	ctx.fillStyle = "white";
 	ctx.font = "40px impact";
-	ctx.fillText(score, 13, 40)
+	ctx.fillText("score " + score, 13, 40)
 
 
 	requestAnimationFrame(draw);
