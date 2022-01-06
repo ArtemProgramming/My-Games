@@ -1,6 +1,15 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+	canvas.width = innerWidth;
+// canvas.height = innerHeight -100;
+
+window.onresize = function(event) {
+    canvas.width = innerWidth;
+	// canvas.height = innerHeight - 100;
+};
+
+
 // Сетка
 let box = 100;
 
@@ -19,6 +28,17 @@ backgroung2.src = "backgroundForest.png";
 
 let playerImg = new Image();
 playerImg.src = "Cute_Spaceship_bevouliin_dot_com/spaceship01.png";
+
+let AudioON_OF = false;
+
+function audio(){
+	if (AudioON_OF) {
+		AudioON_OF = false;
+	}
+	else{
+		AudioON_OF = true;
+	}
+}
 
 let moveA = new Audio();
 moveA.src = "odinochnyiy-zvuk-taymera.mp3"
@@ -52,23 +72,22 @@ onkeydown = function(e){
 	if (e.code == "KeyW") {
 		up = true;
 		w();
-		moveA.play();
+		if (AudioON_OF) {moveA.play()}
 	}
 	if (e.code == "ArrowUp") {
 		up = true;
 		w();
-		moveA.play();
-
+		if (AudioON_OF) {moveA.play()}
 	}
 	if (e.code == "KeyS" || e.code == "ArrowDowm") {
 		down = true;
 		s();
-		moveA.play();
+		if (AudioON_OF) {moveA.play()}
 	}
 	if (e.code == "ArrowDown") {
 		down = true;
 		s();
-		moveA.play();
+		if (AudioON_OF) {moveA.play()}
 
 	}
 }
@@ -88,7 +107,7 @@ onkeyup = function(e){
 
 function w(){
 	if (up === true && player.y > 0) {
-		player.y -= 100;
+		player.y -= box;
 	}
 }
 function s(){
@@ -151,7 +170,7 @@ class enemy{
 			this.frameTimer += 60;
 		}
 		if (player.x == this.x - 90 && player.y == this.y) {
-			loseA.play();
+			if (AudioON_OF) {loseA.play()}
 		}
 		if (player.x == this.x -60 && player.y == this.y) {
 			console.log("lose")
@@ -159,7 +178,7 @@ class enemy{
 		}
 		if (player.x == this.x - 90 && player.y != this.y) {
 			score += 1;
-			scoreA.play();
+			if (AudioON_OF) {scoreA.play()}
 		}
 	}
 	draw(){
@@ -174,8 +193,8 @@ class Worm extends enemy{
 		this.spriteHeight = 468;
 		this.x = 1000;
 		this.y = Math.floor((Math.random() * 3)) * box;
-		this.width = 100;
-		this.height = 100;
+		this.width = box;
+		this.height = box;
 		this.playerIMG = worm;
 	}
 }
