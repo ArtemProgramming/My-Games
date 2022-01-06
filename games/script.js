@@ -229,12 +229,12 @@ function draw(timeStamp) {
 	game.draw();
 
 	ctx.fillStyle = "black";
-	ctx.font = "43px impact";
-	ctx.fillText(score, 10, 40)
+	ctx.font = "44px impact";
+	ctx.fillText("score " + score, 10, 40)
 
 	ctx.fillStyle = "white";
 	ctx.font = "40px impact";
-	ctx.fillText("score " + score, 13, 40)
+	ctx.fillText("score " + score, 14, 38)
 
 
 	requestAnimationFrame(draw);
