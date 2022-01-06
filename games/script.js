@@ -6,6 +6,10 @@ const ctx = canvas.getContext('2d');
 
 window.onresize = function(event) {
     canvas.width = innerWidth;
+    if (innerHeight < 400) {
+    	canvas.height = 200;
+    	box = canvas.height/3;
+    }
 	// canvas.height = innerHeight - 100;
 };
 
