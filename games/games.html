@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,15 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<canvas width="900" height="300" id="canvas"></canvas>
+	<canvas width="900" height="460" id="canvas"></canvas>
 	<img id="worm" src="spritesheet.png" alt="">
 	<div class="btn-wrapper">
-		<p></p>
 		<button id="btnW">W</button>
 		<button id="btnS">S</button>
-		<p>Управление: W - S или Стрелки</p>
+		<div class="box1">
+			<p>Управление: W - S или Стрелки</p>
+			<button onclick="audio()" id="audio">включить звук</button>
+		</div>
 	</div>
 	<script type="text/javascript" src="script.js"></script>
 </body>
