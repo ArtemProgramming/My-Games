@@ -1,13 +1,12 @@
 body{
 	margin: 0;
 	padding: 0;
-/* 	background-color: #212121; */
+	background-color: #212121;
 	font-family: sans-serif;
 }
 #canvas{
 	display: block;
 	background-color: #cccccc;
-	margin: 30px auto 0px;
 }
 img{
 	display: none;
@@ -23,4 +22,9 @@ button{
 }
 p{
 	color: #cccccc;
+	margin-bottom: 0;
+}
+#audio{
+	width: 80px;
+	height: 40px;
 }
