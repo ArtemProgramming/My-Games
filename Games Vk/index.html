@@ -5,30 +5,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 	<div class="instrument">
-		<button id="clear">СLEAR</button>
-		<button id="replay">REPLAY</button>
-		<button id="save">SAVE</button>
-		<button id="IMG">IMG<br>Dowload</button>
-		<div class="input-check">
-			<input type="checkbox" id="check">
-			<label for="check">
-				<div class="check-left"><img src="https://img.icons8.com/dusk/64/000000/paint-brush.png"/></div>
-				<div class="check-right"><img src="gui_eraser_icon_157160.svg" alt=""></div>
+		<button id="clear" onselectstart="return false">СLEAR</button>
+		<button id="replay" onselectstart="return false">REPLAY</button>
+		<button id="save" onselectstart="return false">SAVE</button>
+		<button id="IMG" onselectstart="return false">IMG<br>Dowload</button>
+		<div class="input-check" onselectstart="return false">
+			<input type="checkbox" id="check" onselectstart="return false">
+			<label for="check" onselectstart="return false">
+				<div class="check-left"><img src="https://img.icons8.com/dusk/64/000000/paint-brush.png" onselectstart="return false"></div>
+				<div class="check-right"><img src="gui_eraser_icon_157160.svg" alt="" onselectstart="return false"></div>
 			</label>
 		</div>
-<!-- 		<button id="paint">Paint Mode</button> -->
+<!-- 		<button id="paint">Paint Mode</button > -->
 <!-- 		<img src="" id="img" alt="Нажмите IMG"> -->
 		<p>Укажите цвет кисти:
 		<input type="color" name="bg" value="#000000" id="color">
-	    </p>
-		<label id="linewidthLable"></label>
-		<input type="range" id="linewidth" min="0" max="100" value="10">
+	    </p onselectstart="return false">
+		<label id="linewidthLable" onselectstart="return false"></label>
+		<input type="range" id="linewidth" min="0" max="100" value="10" onselectstart="return false">
 	</div>
-	<canvas width="700" height="500" id="canvas"></canvas>
+	<div class="rigth-box">
+		<div class="top-box">
+			<input type="text" placeholder="URL Картинки">
+			<p id="name"></p>
+		</div>
+		<canvas width="700" height="500" id="canvas"></canvas>
+	</div>
+	<script src="https://vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
