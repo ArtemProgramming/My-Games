@@ -30,8 +30,8 @@ VK.init(function() {
 }, '5.131');
 
 function init(){
-	VK.api("users.get", {"fields": "photo_50,", "v":"5.73"}, function (data) {
-		user_name = data.response[0].first_name + ' ' + data.response[0].first_name;
+	VK.api("users.get", {"fields": "photo_50, first_name, last_name","v":"5.73"}, function (data) {
+		user_name = data.response[0].first_name + ' ' + data.response[0].last_name;
 		avatar = data.response[0].photo_50;
 	});
 }
