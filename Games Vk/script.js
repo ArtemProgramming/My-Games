@@ -13,40 +13,63 @@ let buttonPaint = document.getElementById('check');
 
 let Colors = document.getElementById('color').value;
 
+let info_block = document.getElementById('color').value;
+
 let IsLinewidth = document.getElementById('linewidth').value;
 
 let coords = [];
 
 let paint = true;
 
+let replayFun = false;
+
+VK.init(function() {
+	init()
+  }, function() {
+     alert('Ошибка');
+}, '5.131');
+
+function init(){
+	VK.api("user.get", {"fields": "photo_50,", "v":"5.73"}, function (data) {
+		user_name = data.response[0].first_name + ' ' + data.response[0].first_name;
+		avatar = data.response[0].photo_50;
+	});
+}
+
+
 canvas.width = innerWidth - 150;
-canvas.height = innerHeight;
+canvas.height = innerHeight - 50;
 
 window.onresize = function(event) {
     canvas.width = innerWidth - 150;
-	canvas.height = innerHeight;
+	canvas.height = innerHeight - 50;
 };
 
 
 
 // переменые
 
+let user_name = '';
+let avatar = '';
 var mouseDOWN = false;
 
 // code
-canvas.addEventListener('mousedown', function(e){
+
+window.addEventListener('mousedown', function(e){
 	mouseDOWN = true;
 	console.log(mouseDOWN)
 })
 
-canvas.addEventListener('mouseup', function(e){
+window.addEventListener('mouseup', function(e){
 	mouseDOWN = false;
 	ctx.beginPath();
 	coords.push('mouseup');
 })
+
+
 // ctx.lineWidth = (IsLinewidth / 2) * 2
-canvas.addEventListener('mousemove', function(e){
-	if (mouseDOWN == true) {
+window.addEventListener('mousemove', function(e){
+	if (mouseDOWN == true && e.clientX > 149 && replayFun == false) {
 		if (paint) {
 			ctx.strokeStyle = Colors
 			coords.push([e.clientX, event.clientY, ctx.lineWidth])
@@ -65,7 +88,7 @@ canvas.addEventListener('mousemove', function(e){
 		}
 		
 		if (!paint) {
-			ctx.clearRect(e.clientX - 160, e.clientY, IsLinewidth*4, IsLinewidth*4);
+			ctx.clearRect(e.clientX - 150, e.clientY, IsLinewidth*4, IsLinewidth*4);
 		}
 	}
 })
@@ -78,10 +101,11 @@ function replay(){
 	var timer = setInterval(function(){
 		if ( !coords.length) {
 			clearInterval(timer)
+			replayFun = false;
 			ctx.beginPath();
 			return;
 		}
-
+		replayFun = true;
 		var 
 			crds = coords.shift(),
 			e = {
@@ -193,6 +217,8 @@ buttonPaint.addEventListener('click', function(e){
 // отрисовка панели
 
 function drawPanel(){
+	info_block = document.getElementById('color').innerHTML = user_name;
+
 	IsLinewidth = document.getElementById('linewidth').value;
 	document.getElementById('linewidthLable').innerHTML = 'Ширина ' + IsLinewidth;
 
@@ -200,6 +226,7 @@ function drawPanel(){
 
 
 	Colors = document.getElementById('color').value;
+
 
 	requestAnimationFrame(drawPanel);
 }
