@@ -200,7 +200,6 @@ function drawPanel(){
 
 
 	Colors = document.getElementById('color').value;
-	console.log(Colors)
 
 	requestAnimationFrame(drawPanel);
 }
