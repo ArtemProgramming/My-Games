@@ -25,16 +25,18 @@ p{
 	font-weight: 900;
 	font-size: 18px;
 	padding: 5x;
+	height: 10%;
 }
 
 button{
 	font-family: sans-serif;
 	font-weight: 900;
 	width: 80%;
-	height: 12%;
+	height: 14%;
+	color: #212121;
 	border-radius: 50%;
-	border: 3px solid #212121;
-	background-color: #cccccc;
+	border: 3px solid #212122;
+	background-color: #6767ce;
 	transition: .3s;
 	font-size: 20px;
 	margin-top: 10px;
@@ -49,6 +51,72 @@ button:hover{
 }
 #img{
 	width: 90%;
+	height: 15%;
 	margin: 20px auto;
 	background-color: #ffffff;
+}
+
+
+
+.input-check input[type=checkbox]{
+	visibility: hidden;
+}
+.input-check label{
+	width: 130px;
+	height: 65px;
+	background: #F7F7FB;
+	border-radius: 10px;
+	display: flex;
+
+}
+.check-left{
+	width: 50%;
+	background-color:#5454D4;
+	border-radius: 10px 0px 0px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: .4s;
+}
+.check-left p{
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #FFFFFF;
+	transition: .4s;
+}
+.check-right{
+	width: 50%;
+	background-color:#ffffff;
+	border-radius: 0px 10px 10px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: .4s;
+}
+.check-right img{
+	font-size: 16px;
+	line-height: 19px;
+	text-align: center;
+	color: #19191B;
+	transition: .4s;
+	font-weight: 700;
+}
+.input-check input:checked ~ label .check-right{
+	background-color:#5454D4;
+	transition: .4s;
+}
+.input-check input:checked ~ label .check-right p{
+	color:#ffffff;
+	transition: .4s;
+}
+.input-check input:checked ~ label .check-left{
+	background-color:#ffffff;
+	transition: .4s;
+}
+.input-check input:checked ~ label .check-left p{
+	color: #19191B;
+	transition: .4s;
 }
