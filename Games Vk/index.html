@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<div class="instrument">
+		<button id="clear">СLEAR</button>
+		<button id="replay">REPLAY</button>
+		<button id="save">SAVE</button>
+		<button id="IMG">IMG<br>Dowload</button>
+<!-- 		<button id="Img">Save</button> -->
+		<img src="" id="img" alt="Нажмите IMG">
+		<p>Укажите цвет кисти:
+		<input type="color" name="bg" value="#000000" id="color">
+	    </p>
+		<label id="linewidthLable"></label>
+		<input type="range" id="linewidth" min="0" max="100" value="10">
+	</div>
+	<canvas width="700" height="500" id="canvas"></canvas>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
