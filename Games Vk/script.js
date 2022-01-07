@@ -9,13 +9,15 @@ let buttonReplay = document.getElementById('replay');
 
 let buttonImg = document.getElementById('IMG');
 
-// let buttonSave_Img = document.getElementById('Img');
+let buttonPaint = document.getElementById('check');
 
 let Colors = document.getElementById('color').value;
 
 let IsLinewidth = document.getElementById('linewidth').value;
 
 let coords = [];
+
+let paint = true;
 
 canvas.width = innerWidth - 150;
 canvas.height = innerHeight;
@@ -45,21 +47,32 @@ canvas.addEventListener('mouseup', function(e){
 // ctx.lineWidth = (IsLinewidth / 2) * 2
 canvas.addEventListener('mousemove', function(e){
 	if (mouseDOWN == true) {
-		ctx.strokeStyle = Colors
-		coords.push([e.clientX, event.clientY, ctx.lineWidth])
-		ctx.lineTo(e.clientX - 150, event.clientY);
-		ctx.stroke();
+		if (paint) {
+			ctx.strokeStyle = Colors
+			coords.push([e.clientX, event.clientY, ctx.lineWidth])
+			ctx.lineTo(e.clientX - 150, event.clientY);
+			ctx.stroke();
 
 
-		ctx.beginPath();
-		ctx.fillStyle = Colors
-		ctx.arc(e.clientX - 150, e.clientY, IsLinewidth/2, 0, Math.PI*2);
-		ctx.fill()
+			ctx.beginPath();
+			ctx.fillStyle = Colors
+			ctx.arc(e.clientX - 150, e.clientY, IsLinewidth/2, 0, Math.PI*2);
+			ctx.fill()
 
-		ctx.beginPath()
-		ctx.moveTo(e.clientX - 150, e.clientY)
+			ctx.beginPath()
+			ctx.moveTo(e.clientX - 150, e.clientY)
+
+		}
+		
+		if (!paint) {
+			ctx.clearRect(e.clientX - 160, e.clientY, IsLinewidth*4, IsLinewidth*4);
+		}
 	}
 })
+
+
+
+
 
 function replay(){
 	var timer = setInterval(function(){
@@ -80,6 +93,7 @@ function replay(){
 		ctx.fillText("Replay BETA работает только с Чёрным", 14, 38)
 		ctx.fillText("цветом и одной толщиной кисти ", 14,70)
 
+
 		ctx.strokeStyle = "black";
 		ctx.lineTo(e.clientX - 150, e.clientY);
 		ctx.stroke();
@@ -92,6 +106,13 @@ function replay(){
 		ctx.moveTo(e.clientX - 150, e.clientY)
 	},30)
 }
+
+
+
+
+
+
+
 
 buttonSave.addEventListener('click', function(e){
 	save();
@@ -107,6 +128,9 @@ buttonReplay.addEventListener('click', function(e){
 buttonClear.addEventListener('click', function(e){
 	clear();
 })
+
+
+
 // function
 
 function save(){
@@ -157,21 +181,13 @@ buttonImg.addEventListener('click', function(e){
 
 })
 
-// buttonSave_Img.addEventListener('click', function(e){
-	// 	console.log('dfsf')
-// 	if (window.location.msSaveBlob) {
-// 		window.location.msSaveBlob(canvas.msSaveBlob(), "paint_image")
-// 	}else{
-// 		// document.body.appendChild(a)
-
-// 		const a = document.createElement("a");
-// 		a.href = canvas.toDataURL();
-// 		a.dowload = "Paint-Image.png";
-// 		// a.click();
-
-// 		// document.body.removeChild(a)
-// 	}
-// })
+buttonPaint.addEventListener('click', function(e){
+	if (!paint) {
+		paint = true;
+	}else{
+		paint = false;
+	}
+})
 
 
 // отрисовка панели
