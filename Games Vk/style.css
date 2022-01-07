@@ -34,7 +34,7 @@ button{
 	width: 80%;
 	height: 14%;
 	color: #212121;
-	border-radius: 50%;
+	border-radius: 10px;
 	border: 3px solid #212122;
 	background-color: #6767ce;
 	transition: .3s;
