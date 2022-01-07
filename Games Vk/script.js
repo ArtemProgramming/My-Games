@@ -77,7 +77,8 @@ function replay(){
 			};
 		ctx.fillStyle = "black";
 		ctx.font = "40px sans-serif";
-		ctx.fillText("Replay BETA работает только с Чёрным светом и одной толщиной кисти ", 14, 38)
+		ctx.fillText("Replay BETA работает только с Чёрным", 14, 38)
+		ctx.fillText("цветом и одной толщиной кисти ", 14,70)
 
 		ctx.strokeStyle = "black";
 		ctx.lineTo(e.clientX - 150, e.clientY);
