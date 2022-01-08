@@ -42,14 +42,18 @@ var mouseDOWN = false;
 // code
 
 window.addEventListener('mousedown', function(e){
-	mouseDOWN = true;
-	console.log(mouseDOWN)
+	if (replayFun == false) {
+		mouseDOWN = true;
+		console.log(mouseDOWN)
+	}
 })
 
 window.addEventListener('mouseup', function(e){
-	mouseDOWN = false;
-	ctx.beginPath();
-	coords.push('mouseup');
+	if (replayFun == false) {
+		mouseDOWN = false;
+		ctx.beginPath();
+		coords.push('mouseup');
+	}	
 })
 
 
@@ -98,8 +102,8 @@ function replay(){
 				clientX: crds["0"],
 				clientY: crds["1"]
 			};
-		ctx.fillStyle = "black";
-		ctx.font = "40px sans-serif";
+		ctx.fillStyle = "#212121";
+		ctx.font = "16px sans-serif";
 		ctx.fillText("Replay BETA работает только с Чёрным", 14, 38)
 		ctx.fillText("цветом и одной толщиной кисти ", 14,70)
 
@@ -109,6 +113,7 @@ function replay(){
 		ctx.stroke();
 
 		ctx.beginPath();
+		ctx.fillStyle = "black";
 		ctx.arc(e.clientX - 150, e.clientY - 50, IsLinewidth/2, 0, Math.PI*2);
 		ctx.fill();
 
