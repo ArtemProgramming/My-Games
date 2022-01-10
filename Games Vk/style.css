@@ -148,3 +148,11 @@ button:hover{
 .top-box p{
 	padding-right: 15px;
 }
+
+
+i{
+	font-size: 20px;
+	color: #212121;
+	padding-right: 10px;
+	margin: 0;
+}
