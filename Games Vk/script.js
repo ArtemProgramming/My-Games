@@ -78,7 +78,7 @@ window.addEventListener('mousemove', function(e){
 		}
 		
 		if (!paint) {
-			ctx.clearRect(e.clientX - 150, e.clientY - 50, IsLinewidth*4, IsLinewidth*4);
+			ctx.clearRect(e.clientX - 160, e.clientY - 60, IsLinewidth*4, IsLinewidth*4);
 		}
 	}
 })
@@ -154,23 +154,23 @@ function clear(){
 }
 
 
-//сохронение фотографии
+// сохронение фотографии
 // let img = document.getElementById('img')
 
-// buttonImg.addEventListener('click', function(e){
-// 	const dataURI = canvas.toDataURL('image/png');
-// 	img.src = dataURI;
-// 	img.crossOrigin = "anonymous"
+buttonImg.addEventListener('click', function(e){
+	// const dataURI = canvas.toDataURL('image/png');
+	// img.src = dataURI;
+	// img.crossOrigin = "anonymous"
 
-// 	var dataURL = canvas.toDataURL("image/jpeg");
-//   	var link = document.createElement("a");
-// 	  document.body.appendChild(link); // Firefox requires the link to be in the body :(
-// 	  link.href = dataURL;
-// 	  link.download = "Paint-Holst_BETA.jpg";
-// 	  link.click();
+	var dataURL = canvas.toDataURL("image/jpeg");
+  	var link = document.createElement("a");
+	  document.body.appendChild(link); // Firefox requires the link to be in the body :(
+	  link.href = dataURL;
+	  link.download = "Paint-Holst_BETA.jpg";
+	  link.click();
 
-// 	  document.body.removeChild(link);
-// })
+	  document.body.removeChild(link);
+})
 
 buttonPaint.addEventListener('click', function(e){
 	if (!paint) {
